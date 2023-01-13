@@ -1,0 +1,14 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Visited Parks</h1>
+  <h2>Add a park below!</h2>
+  <ul>
+    <% parks.forEach(park => { %>
+      <li>At <%= park.park %> my favorite ride was <%= park.ride %></li>
+    <% }) %>
+  </ul>
+</section>
+
+<%- include('../partials/footer') %>
