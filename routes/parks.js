@@ -13,6 +13,7 @@ router.get('/:id', parksCtrl.show)
 //POST localhost:3000/parks
 router.post('/', isLoggedIn, parksCtrl.create)
 
+//PATCH localhost:3000/parks/:id/likes
 router.patch('/:id/likes', isLoggedIn, parksCtrl.likes)
 
 export {

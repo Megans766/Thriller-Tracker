@@ -2,18 +2,18 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h2><%= park.owner.name %>'s Adventure</h2>
+  <h2><%= park.owner %>'s Adventure</h2>
   <p>At <%= park.park %> my favorite ride was <%= park.ride %></p>
   <% if (user) { %>
     <form 
-      action="/parks/<%= park._id %>/likes?_method="PATCH" 
+      action="/parks/<%= park._id %>/likes?_method=PATCH" 
       method="POST"
     >
       <button type="submit">Like this adventure</button>
     </form>
     <button>Edit adventure</button>
     <button>Delete adventure</button>
-  <% } %>
+  <% } %> 
 </section>
 
 <%- include('../partials/footer') %>

@@ -4,18 +4,18 @@
 <section>
   <h1>Visited Parks</h1>
   <% if (user) { %>
-  <h2>Add a park below!</h2>
-  <form action="/parks" method="POST">
-    <label>
-      Amusement Park:
-      <input type="text" name="park" autocomplete="off">
-    </label>
-    <label>
-      Favorite Ride:
-      <input type="text" name="ride" autocomplete="off">
-    </label>
-    <button type="submit">Add Park</button>
-  </form>
+    <h2>Add a park below!</h2>
+    <form action="/parks" method="POST">
+      <label>
+        Amusement Park:
+        <input type="text" name="park" autocomplete="off">
+      </label>
+      <label>
+        Favorite Ride:
+        <input type="text" name="ride" autocomplete="off">
+      </label>
+      <button type="submit">Add Park</button>
+    </form>
   <% } %>
   <h3>All Adventures</h3>
   <ul>

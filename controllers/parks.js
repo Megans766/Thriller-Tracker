@@ -39,14 +39,15 @@ function show(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/parks')
+    res.redirect('/')
   })
 }
 
 function likes(req, res) {
   Park.findById(req.params.id)
   .then(park => {
-    park.likes = !park.likespark.save()
+    park.likes = !park.likes
+    park.save()
     .then(() => {
       res.redirect(`/parks/${park._id}`)
     })
