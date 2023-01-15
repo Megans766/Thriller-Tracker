@@ -5,7 +5,8 @@ function index(req, res) {
   .then(parks => {
     res.render('parks/index', {
       title: 'Visited Parks',
-      parks
+      parks,
+      user: req.user ? req.user : null
     })
   })
   .catch(err => {
@@ -30,6 +31,7 @@ function show(req, res) {
   Park.findById(req.parmas.id)
   .populate('owner')
   .then(park => {
+    console.log(park);
     res.render('parks/show', {
       title: 'Parks Show Page',
       park
@@ -41,8 +43,27 @@ function show(req, res) {
   })
 }
 
+function likes(req, res) {
+  Park.findById(req.params.id)
+  .then(park => {
+    park.likes = !park.likespark.save()
+    .then(() => {
+      res.redirect(`/parks/${park._id}`)
+    })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/parks')
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/parks')
+  })
+}
+
 export {
   index,
   create,
-  show
+  show,
+  likes
 }
