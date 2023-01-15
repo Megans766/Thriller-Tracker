@@ -26,7 +26,23 @@ function create(req, res) {
   })
 }
 
+function show(req, res) {
+  Park.findById(req.parmas.id)
+  .populate('owner')
+  .then(park => {
+    res.render('parks/show', {
+      title: 'Parks Show Page',
+      park
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/parks')
+  })
+}
+
 export {
   index,
-  create
+  create,
+  show
 }

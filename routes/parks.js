@@ -7,7 +7,10 @@ const router = Router()
 //GET localhost:3000/parks
 router.get('/', parksCtrl.index)
 
-//POST localhost:3000
+//GET localhost:3000/parks/:id
+router.get('/:id', parksCtrl.show)
+
+//POST localhost:3000/parks
 router.post('/', isLoggedIn, parksCtrl.create)
 
 export {
