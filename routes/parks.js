@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import * as parksCtrl from '../controllers/parks.js'
+import { isLoggedIn } from '../middleware/middleware.js'
 
 const router = Router()
 
@@ -7,7 +8,7 @@ const router = Router()
 router.get('/', parksCtrl.index)
 
 //POST localhost:3000
-
+router.post('/', isLoggedIn, parksCtrl.create)
 
 export {
   router

@@ -14,6 +14,19 @@ function index(req, res) {
   })
 }
 
+function create(req, res) {
+  req.body.owner = req.user.profile._id
+  Park.create(req.body)
+  .then(park => {
+    res.redirect('/parks')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/parks')
+  })
+}
+
 export {
-  index
+  index,
+  create
 }
