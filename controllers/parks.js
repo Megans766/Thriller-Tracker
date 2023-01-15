@@ -62,9 +62,24 @@ function likes(req, res) {
   })
 }
 
+function edit(req, res) {
+  Park.findById(req.params.id)
+  .then(park => {
+    res.render('parks/edit', {
+      title: 'Edit Park',
+      park
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/parks')
+  })
+}
+
 export {
   index,
   create,
   show,
-  likes
+  likes,
+  edit
 }

@@ -11,8 +11,12 @@
     >
       <button type="submit">Like this adventure</button>
     </form>
-    <button>Edit adventure</button>
-    <button>Delete adventure</button>
+    <% if (park.owner.equals(user?.profile._id)) { %>
+      <a href="/parks/<% park._id %>/edit">
+        <button>Edit Adventure</button>
+      </a>
+    <% } %>
+    <button>Delete Adventure</button>
   <% } %> 
 </section>
 

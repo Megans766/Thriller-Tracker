@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<section>
+  <h1>Edit this adventure</h1>
+  <form action="/parks/<%= park._id %>?_method=PUT" method="POST">
+    <label>
+      Amusement Park:
+      <input type="text" name="park" autocomplete="off">
+    </label>
+    <label>
+      Favorite Ride:
+      <input type="text" name="ride" autocomplete="off">
+    </label>
+    <button type="submit">Update Park</button>
+  </form>
+</section>
+
+<%- include('../partials/footer') %>
