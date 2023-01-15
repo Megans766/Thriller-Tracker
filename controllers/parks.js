@@ -28,7 +28,7 @@ function create(req, res) {
 }
 
 function show(req, res) {
-  Park.findById(req.parmas.id)
+  Park.findById(req.params.id)
   .populate('owner')
   .then(park => {
     console.log(park);

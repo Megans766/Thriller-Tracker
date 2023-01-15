@@ -5,7 +5,7 @@
   <h1>Visited Parks</h1>
   <% if (user) { %>
   <h2>Add a park below!</h2>
-  <form action="/parks" methos="POST">
+  <form action="/parks" method="POST">
     <label>
       Amusement Park:
       <input type="text" name="park" autocomplete="off">
@@ -17,9 +17,14 @@
     <button type="submit">Add Park</button>
   </form>
   <% } %>
+  <h3>All Adventures</h3>
   <ul>
     <% parks.forEach(park => { %>
-      <li>At <%= park.park %> my favorite ride was <%= park.ride %>.</li>
+      <li>
+        At 
+        <a href="/parks/<%= park._id %>"><%= park.park %></a> 
+        my favorite ride was <%= park.ride %>.
+      </li>
     <% }) %>
   </ul>
 </section>
