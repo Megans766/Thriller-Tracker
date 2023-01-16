@@ -19,6 +19,12 @@ router.post('/', isLoggedIn, parksCtrl.create)
 //PATCH localhost:3000/parks/:id/likes
 router.patch('/:id/likes', isLoggedIn, parksCtrl.likes)
 
+//PUT localhost:3000/parks/:id
+router.put('/:id', isLoggedIn, parksCtrl.update)
+
+//DELETE localhost:3000/parks/:id
+router.delete('/:id', isLoggedIn, parksCtrl.delete)
+
 export {
   router
 }

@@ -76,10 +76,48 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  Park.findById(req.params.id)
+  .then(park => {
+    if (park.owner.equals(req.user.profile._id)) {
+      park.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/parks/${park._id}`)
+      })
+    } else {
+      throw new Error('You are not allowed to make these changes!')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/parks')
+  })
+}
+
+function deletePark(req, res) {
+  Park.findById(req.params.id)
+  .then(park => {
+    if (park.owner.equals(req.user.profile._id)) {
+      park.delete()
+      .then(() => {
+        res.redirect('/parks')
+      })
+    } else {
+    throw new Error('You are not allowed to make these changes!')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/parks')
+  })
+}
+
 export {
   index,
   create,
   show,
   likes,
-  edit
+  edit,
+  update,
+  deletePark as delete
 }
