@@ -1,0 +1,11 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <div>
+    <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
+  </div>
+  <h1><%= profileOwner ? 'Your' : profile.name %>'s thrill collection!</h1>
+</main>
+
+<%- include('../partials/footer') %>

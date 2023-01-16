@@ -30,7 +30,7 @@ function create(req, res) {
 
 function show(req, res) {
   Park.findById(req.params.id)
-  .populate('owner')
+  // .populate('owner')
   .then(park => {
     console.log(park.owner.name);
     res.render('parks/show', {
@@ -81,7 +81,7 @@ function update(req, res) {
   Park.findById(req.params.id)
   .then(park => {
     if (park.owner.equals(req.user.profile._id)) {
-      park
+      // park
       park.updateOne(req.body)
       .then(() => {
         res.redirect(`/parks/${park._id}`)

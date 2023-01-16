@@ -2,7 +2,7 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h2><%= park.user %>'s Adventure</h2>
+  <h2><%= park.owner.name %>'s Adventure</h2>
   <p>At <%= park.park %> my favorite ride was <%= park.ride %></p>
   <% if (user) { %>
     <form 
@@ -12,14 +12,14 @@
       <button type="submit">Like this adventure</button>
     </form>
   <% } %>
-   <% if (park.owner.equals(user?.profile._id)) { %> 
+  <% if (park.owner.equals(user?.profile._id)) { %> 
     <a href="/parks/<%= park._id %>/edit">
       <button>Edit Adventure</button>
     </a>
     <form action="/parks/<%= park._id %>?_method=DELETE" method="POST">
       <button>Delete Adventure</button>
     </form>
-   <% } %> 
+  <% } %> 
 </section>
 
 <%- include('../partials/footer') %>

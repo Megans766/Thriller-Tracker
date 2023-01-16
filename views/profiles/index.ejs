@@ -1,0 +1,19 @@
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
+
+<main>
+  <div>
+    <% profiles.forEach(profile => { %>
+      <a href="/profiles/<%= profiles._id %>">
+        <div>
+          <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
+        </div>
+        <div>
+          <h2><%= profile.name %></h2>
+        </div>
+      </a>
+    <% }) %>
+  </div>
+</main>
+
+<%- include('../partials/footer') %>
