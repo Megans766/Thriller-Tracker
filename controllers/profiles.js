@@ -50,6 +50,20 @@ function createToVisit(req, res) {
   })
 }
 
+function edit(req, res) {
+  Profile.findById(req.params.id)
+  .then(park => {
+    res.render('profiles/edit', {
+      title: 'Complete Bucket List Item',
+      park
+    })
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 function deleteToVisit(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
@@ -73,5 +87,6 @@ export {
   index,
   show,
   createToVisit,
+  edit,
   deleteToVisit
 }

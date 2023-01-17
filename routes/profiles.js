@@ -8,6 +8,8 @@ router.get('/', isLoggedIn, profilesCtrl.index)
 
 router.get('/:id', isLoggedIn, profilesCtrl.show)
 
+router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
+
 router.post('/:id/toVisit', isLoggedIn, profilesCtrl.createToVisit)
 
 router.delete('/toVisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
