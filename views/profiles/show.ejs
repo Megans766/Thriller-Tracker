@@ -23,9 +23,17 @@
     </h2>
     <ul>
       <% profile.toVisit.forEach(park => { %>
-        <h3><%= park.park %></h3>
+        <li><%= park.park %></li>
+        <% if (profileOwner) { %>
+          <form 
+            action="/profiles/toVisit/<%= park._id %>?_method=DELETE"
+            method="POST"
+          >
+            <button type="submit">Delete</button>
+          </form>
+        <% } %>
       <% }) %>
-  </ul>
+    </ul>
   <% } else { %>
     <h2>
       <%= profileOwner ? "You haven't" : `${profile.name} hasn't` %>
