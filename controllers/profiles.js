@@ -65,6 +65,25 @@ function edit(req, res) {
   })
 }
 
+function updateToVisit(req, res) {
+  Profile.findById(req.params.id)
+  .then(park => {
+    if (park.profileOwner.equals(req.user.profile._id)) {
+      req.body.visited = !!req.body.visited
+      park.updateOne(req.body)
+      .then(() => {
+        res.redirect(`/profiles${req.user.profile._id}`)
+      })
+    } else {
+      throw new Error('You are not allowed to make these changes!')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 function deleteToVisit(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
@@ -89,5 +108,6 @@ export {
   show,
   createToVisit,
   edit,
+  updateToVisit,
   deleteToVisit
 }
