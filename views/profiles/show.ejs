@@ -16,14 +16,14 @@
       <button type="submit">Add Future Adventure</button>
     </form>
   <% } %>
-  <% if (profile.length) { %>
+  <% if (profile.toVisit.length) { %>
     <h2>
       <%= profileOwner ? 'Your' : `${profile.name}'s` %>
       Bucket List of Future Thrills
     </h2>
     <ul>
       <% profile.toVisit.forEach(park => { %>
-        <h3><%= profile.toVisit.park %></h3>
+        <h3><%= park.park %></h3>
       <% }) %>
   </ul>
   <% } else { %>

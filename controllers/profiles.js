@@ -1,5 +1,4 @@
 import { Profile } from '../models/profile.js'
-import { Visit } from '../models/toVisit.js'
 
 function index(req, res) {
   Profile.find({})
@@ -33,11 +32,11 @@ function show(req, res) {
 
 function createToVisit(req, res) {
   Profile.findById(req.user.profile._id)
-  .populate('toVisit')
-  .then(profile => {
-    profile.toVisit.push(req.body)
-    profile.save()
+  .then(visit => {
+    visit.toVisit.push(req.body)
+    visit.save()
     .then(() => {
+      console.log('this is the toVisit');
       res.redirect(`/profiles/${req.user.profile._id}`)
     })
     .catch(err => {
