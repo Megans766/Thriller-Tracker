@@ -12,7 +12,7 @@ router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
 
 router.post('/:id/toVisit', isLoggedIn, profilesCtrl.createToVisit)
 
-router.put('/:id/', isLoggedIn, profilesCtrl.updateToVisit)
+router.put('/:id', isLoggedIn, profilesCtrl.updateToVisit)
 
 router.delete('/toVisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
 

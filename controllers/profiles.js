@@ -31,6 +31,8 @@ function show(req, res) {
 }
 
 function createToVisit(req, res) {
+  req.body.visited = !!req.body.visited
+  req.body.profileOwner = req.user.profile.id
   Profile.findById(req.user.profile._id)
   .then(visit => {
     visit.toVisit.push(req.body)
@@ -51,7 +53,6 @@ function createToVisit(req, res) {
 }
 
 function edit(req, res) {
-  req.body.visited = !!req.body.visited
   Profile.findById(req.params.id)
   .then(park => {
     res.render('profiles/edit', {
