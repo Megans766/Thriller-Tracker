@@ -25,6 +25,9 @@
       <% profile.toVisit.forEach(park => { %>
         <li><%= park.park %></li>
         <% if (profileOwner) { %>
+          <a href="/profiles/<%= park._id" %>/edit">
+            <button>Complete Thrill</button>
+          </a>
           <form 
             action="/profiles/toVisit/<%= park._id %>?_method=DELETE"
             method="POST"
