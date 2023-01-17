@@ -2,12 +2,10 @@ import { Park } from '../models/park.js'
 
 function index(req, res) {
   Park.find({})
-  // .populate('owner')
   .then(parks => {
     res.render('parks/index', {
       title: 'Visited Parks',
-      parks,
-      // user: req.user ? req.user : null
+      parks
     })
   })
   .catch(err => {
@@ -32,7 +30,6 @@ function show(req, res) {
   Park.findById(req.params.id)
   .populate('owner')
   .then(park => {
-    // console.log(park.owner.name);
     res.render('parks/show', {
       title: 'Park Adventure',
       park
@@ -52,10 +49,10 @@ function likes(req, res) {
     .then(() => {
       res.redirect(`/parks/${park._id}`)
     })
-    // .catch(err => {
-    //   console.log(err)
-    //   res.redirect('/parks')
-    // })
+    .catch(err => {
+      console.log(err)
+      res.redirect('/parks')
+    })
   })
   .catch(err => {
     console.log(err)
@@ -81,7 +78,6 @@ function update(req, res) {
   Park.findById(req.params.id)
   .then(park => {
     if (park.owner.equals(req.user.profile._id)) {
-      // park
       park.updateOne(req.body)
       .then(() => {
         res.redirect(`/parks/${park._id}`)
