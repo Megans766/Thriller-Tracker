@@ -2,12 +2,12 @@ import { Park } from '../models/park.js'
 
 function index(req, res) {
   Park.find({})
-  .populate('owner')
+  // .populate('owner')
   .then(parks => {
     res.render('parks/index', {
       title: 'Visited Parks',
       parks,
-      user: req.user ? req.user : null
+      // user: req.user ? req.user : null
     })
   })
   .catch(err => {
@@ -30,9 +30,9 @@ function create(req, res) {
 
 function show(req, res) {
   Park.findById(req.params.id)
-  // .populate('owner')
+  .populate('owner')
   .then(park => {
-    console.log(park.owner.name);
+    // console.log(park.owner.name);
     res.render('parks/show', {
       title: 'Park Adventure',
       park
@@ -40,7 +40,7 @@ function show(req, res) {
   })
   .catch(err => {
     console.log(err)
-    res.redirect('/')
+    res.redirect('/parks')
   })
 }
 
@@ -52,10 +52,10 @@ function likes(req, res) {
     .then(() => {
       res.redirect(`/parks/${park._id}`)
     })
-    .catch(err => {
-      console.log(err)
-      res.redirect('/parks')
-    })
+    // .catch(err => {
+    //   console.log(err)
+    //   res.redirect('/parks')
+    // })
   })
   .catch(err => {
     console.log(err)
@@ -105,7 +105,7 @@ function deletePark(req, res) {
         res.redirect('/parks')
       })
     } else {
-    throw new Error('You are not allowed to make these changes!')
+      throw new Error('You are not allowed to make these changes!')
     }
   })
   .catch(err => {
