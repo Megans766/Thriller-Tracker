@@ -10,6 +10,8 @@ router.get('/:id', isLoggedIn, profilesCtrl.show)
 
 router.post('/:id/toVisit', isLoggedIn, profilesCtrl.createToVisit)
 
+router.delete('/toVisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
+
 export {
   router
 }
