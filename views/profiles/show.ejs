@@ -5,7 +5,7 @@
   <div>
     <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
   </div>
-  <h1><%= profileOwner ? 'Your' : profile.name %>'s thrill collection!</h1>
+  <h1><%= profileOwner ? 'Your' : `${profile.name}'s` %> thrill collection!</h1>
   <% if (profileOwner) { %>
     <h2>Add a Park to Your Bucket List</h2>
     <form action="/profiles/<%= profile._id %>/toVisit" method="POST">
@@ -23,7 +23,7 @@
     </h2>
     <% profile.toVisit.forEach(park => { %>
       <h3>
-        <%= toVisit.park %>
+        <%= park.park %>
       </h3>
     <% }) %>
   <% } else { %>
