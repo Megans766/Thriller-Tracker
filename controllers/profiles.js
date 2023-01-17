@@ -51,6 +51,7 @@ function createToVisit(req, res) {
 }
 
 function edit(req, res) {
+  req.body.visited = !!req.body.visited
   Profile.findById(req.params.id)
   .then(park => {
     res.render('profiles/edit', {
