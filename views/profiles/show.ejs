@@ -8,7 +8,7 @@
   <h1><%= profileOwner ? 'Your' : profile.name %>'s thrill collection!</h1>
   <% if (profileOwner) { %>
     <h3>Bucket List of Future Thrills</h3>
-    <form action="/profiles/<%= profile._id %>" method="POST">
+    <form action="/profiles/<%= profile._id %>/toVisit" method="POST">
       <label>
         Amusement Park:
         <input type="text" name="park" autocomplete="off">
