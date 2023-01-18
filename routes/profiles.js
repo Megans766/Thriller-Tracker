@@ -16,7 +16,7 @@ router.post('/:id/toVisit', isLoggedIn, profilesCtrl.createToVisit)
 
 router.put('/toVisit/:parkId', isLoggedIn, profilesCtrl.updateToVisit)
 
-router.delete('/tovisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
+router.delete('/toVisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
 
 export {
   router

@@ -85,28 +85,47 @@ function editToVisit(req, res) {
 }
 
 function updateToVisit(req, res) {
-  Profile.findById(req.params.id)
-  .then(park => {
-    const parkDoc = park.toVisit.id(req.params.id)
-    if (park.profileOwner.equals(req.user.profile._id)) {
-      parkDoc.set(req.body)
-      park.save()
-      .then(() => {
-        res.redirect(`/profiles/${req.user.profile._id}`)
-      })
-      .catch(err => {
-        console.log(err)
-        res.redirect('/profiles')
-      })
-    } else {
-      throw new Error('You are not authorized to make these changes!')
-    }
+  Profile.findById(req.params.parkId)
+  .then((park) => {
+    const bucketList = park.toVisit.id(req.params.parkId)
+    // bucketList.set(req.body)
+    // park.save()
+    // park.updateOne(req.body)
+    console.log("PARKID", park.toVisit.id);
+    console.log("BUCKETLIST", bucketList);
+  })
+  .then(() => {
+    res.redirect(`/profiles/${req.user.profile._id}`)
   })
   .catch(err => {
     console.log(err)
     res.redirect(`/profiles/${req.user.profile._id}`)
   })
 }
+
+// function updateToVisit(req, res) {
+//   Profile.findById(req.params.parkId)
+//   .then(park => {
+//     const parkDoc = park.toVisit.id(req.params.id)
+//     if (park.profileOwner.equals(req.user.profile._id)) {
+//       parkDoc.set(req.body)
+//       park.save()
+//       .then(() => {
+//         res.redirect(`/profiles/${req.user.profile._id}`)
+//       })
+//       .catch(err => {
+//         console.log(err)
+//         res.redirect('/profiles')
+//       })
+//     } else {
+//       throw new Error('You are not authorized to make these changes!')
+//     }
+//   })
+//   .catch(err => {
+//     console.log(err)
+//     res.redirect(`/profiles/${req.user.profile._id}`)
+//   })
+// }
 
 function deleteToVisit(req, res) {
   Profile.findById(req.user.profile._id)
