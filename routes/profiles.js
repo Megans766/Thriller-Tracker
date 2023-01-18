@@ -14,7 +14,7 @@ router.get('/:id/toVisit/:parkId/edit', isLoggedIn, profilesCtrl.editToVisit)
 
 router.post('/:id/toVisit', isLoggedIn, profilesCtrl.createToVisit)
 
-router.put('/:id/toVisit/:parkId', isLoggedIn, profilesCtrl.updateToVisit)
+router.put('/toVisit/:parkId', isLoggedIn, profilesCtrl.updateToVisit)
 
 router.delete('/tovisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
 

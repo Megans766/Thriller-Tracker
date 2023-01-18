@@ -2,8 +2,11 @@
 <%- include('../partials/nav') %>
 
 <section>
-    <h1>Edit or Check off Bucket List Item!</h1>
-    <form action="/profiles/<%= profile._id %>/toVisit/<%= park._id %>?_method=PUT" method="POST">
+  <h1>Edit or Check off Bucket List Item!</h1>
+  <form 
+    action="/profiles/toVisit/<%= park._id %>?_method=PUT" 
+    method="POST"
+  >
       <label>
         Amusement Park:
         <input type="text" name="park" autocomplete="off">

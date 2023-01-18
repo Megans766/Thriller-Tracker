@@ -4,7 +4,6 @@ const Schema = mongoose.Schema
 
 const toVisitSchema = new Schema({
   park: String
-  
 }, {
   timestamps: true
 })

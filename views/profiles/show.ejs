@@ -27,7 +27,7 @@
         <%= park.visited ? '🎢' : '' %>
         <% if (profileOwner) { %>
           <a href="/profiles/<%= profile._id %>/toVisit/<%= park._id %>/edit">
-            <button>Update</button>
+            <button>Edit Park</button>
           </a>
           <form 
             action="/profiles/toVisit/<%= park._id %>?_method=DELETE"
