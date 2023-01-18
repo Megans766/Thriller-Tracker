@@ -86,16 +86,22 @@ function editToVisit(req, res) {
 
 function updateToVisit(req, res) {
   Profile.findById(req.params.parkId)
-  .then((park) => {
-    const bucketList = park.toVisit.id(req.params.parkId)
-    // bucketList.set(req.body)
-    // park.save()
-    // park.updateOne(req.body)
-    console.log("PARKID", park.toVisit.id);
-    console.log("BUCKETLIST", bucketList);
-  })
-  .then(() => {
-    res.redirect(`/profiles/${req.user.profile._id}`)
+  .then(profile => {
+    if (profile.park.equals(req.user.profile._id)) {
+      const bucketList = profile.park.id(req.params.toVisitId)
+      console.log("BUCKETLIST", bucketList);
+      bucketList.set(req.body)
+      profile.save()
+      .then(() => {
+        res.redirect(`/profiles/${req.user.profile._id}`)
+      })
+      .catch(err => {
+        console.log(err)
+        res.redirect(`/profiles/${req.user.profile._id}`)
+      })
+    } else {
+      throw new Error('You are not authorized to make these changes')
+    }
   })
   .catch(err => {
     console.log(err)
