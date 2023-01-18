@@ -51,88 +51,6 @@ function createToVisit(req, res) {
   })
 }
 
-function edit(req, res) {
-  Profile.findById(req.params.id)
-  .then(park => {
-    console.log(park, "the log");
-    res.render('profiles/edit', {
-      title: 'Complete Bucket List Item',
-      park
-    })
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/profiles/${req.user.profile._id}`)
-  })
-}
-
-function editToVisit(req, res) {
-  Profile.findById(req.params.id)
-  .then(park => {
-    if (park._id.equals(req.user.profile._id)) {
-      res.render('profiles/edit', {
-        title: 'Edit Profile',
-        park
-      })
-    } else {
-      throw new Error('You are not authorized to make these changes!')
-    }
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/profiles/${req.user.profile._id}`)
-  })
-}
-
-function updateToVisit(req, res) {
-  Profile.findById(req.params.parkId)
-  .then(profile => {
-    if (profile.park.equals(req.user.profile._id)) {
-      const bucketList = profile.park.id(req.params.toVisitId)
-      console.log("BUCKETLIST", bucketList);
-      bucketList.set(req.body)
-      profile.save()
-      .then(() => {
-        res.redirect(`/profiles/${req.user.profile._id}`)
-      })
-      .catch(err => {
-        console.log(err)
-        res.redirect(`/profiles/${req.user.profile._id}`)
-      })
-    } else {
-      throw new Error('You are not authorized to make these changes')
-    }
-  })
-  .catch(err => {
-    console.log(err)
-    res.redirect(`/profiles/${req.user.profile._id}`)
-  })
-}
-
-// function updateToVisit(req, res) {
-//   Profile.findById(req.params.parkId)
-//   .then(park => {
-//     const parkDoc = park.toVisit.id(req.params.id)
-//     if (park.profileOwner.equals(req.user.profile._id)) {
-//       parkDoc.set(req.body)
-//       park.save()
-//       .then(() => {
-//         res.redirect(`/profiles/${req.user.profile._id}`)
-//       })
-//       .catch(err => {
-//         console.log(err)
-//         res.redirect('/profiles')
-//       })
-//     } else {
-//       throw new Error('You are not authorized to make these changes!')
-//     }
-//   })
-//   .catch(err => {
-//     console.log(err)
-//     res.redirect(`/profiles/${req.user.profile._id}`)
-//   })
-// }
-
 function deleteToVisit(req, res) {
   Profile.findById(req.user.profile._id)
   .then(profile => {
@@ -156,8 +74,5 @@ export {
   index,
   show,
   createToVisit,
-  edit,
-  editToVisit,
-  updateToVisit,
   deleteToVisit
 }
