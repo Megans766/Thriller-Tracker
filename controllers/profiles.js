@@ -17,6 +17,7 @@ function index(req, res) {
 function show(req, res) {
   Profile.findById(req.params.id)
   .then(profile => {
+    console.log(profile.toVisit, "the new log");
     const profileOwner = profile._id.equals(req.user.profile._id)
     res.render('profiles/show', {
       title: `${profile.name}'s Adventures`,
@@ -55,6 +56,7 @@ function createToVisit(req, res) {
 function edit(req, res) {
   Profile.findById(req.params.id)
   .then(park => {
+    console.log(park, "the log");
     res.render('profiles/edit', {
       title: 'Complete Bucket List Item',
       park
@@ -66,10 +68,28 @@ function edit(req, res) {
   })
 }
 
+function editToVisit(req, res) {
+  Profile.findById(req.params.id)
+  .then(park => {
+    if (park._id.equals(req.user.profile._id)) {
+      res.render('profiles/edit', {
+        title: 'Edit Profile',
+        park
+      })
+    } else {
+      throw new Error('You are not authorized to make these changes!')
+    }
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect(`/profiles/${req.user.profile._id}`)
+  })
+}
+
 function updateToVisit(req, res) {
   Profile.findById(req.params.id)
   .then(park => {
-    if (park.profileOwner.equals(req.user.profile._id)) {
+    if (park._id.equals(req.user.profile._id)) {
       req.body.visited = !!req.body.visited
       park.updateOne(req.body)
       .then(() => {
@@ -109,6 +129,7 @@ export {
   show,
   createToVisit,
   edit,
+  editToVisit,
   updateToVisit,
   deleteToVisit
 }

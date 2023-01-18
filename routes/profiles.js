@@ -10,11 +10,13 @@ router.get('/:id', isLoggedIn, profilesCtrl.show)
 
 router.get('/:id/edit', isLoggedIn, profilesCtrl.edit)
 
+router.get('/:id/toVisit/:parkId/edit', isLoggedIn, profilesCtrl.editToVisit)
+
 router.post('/:id/toVisit', isLoggedIn, profilesCtrl.createToVisit)
 
-router.put('/:id', isLoggedIn, profilesCtrl.updateToVisit)
+router.put('/:id/toVisit/:parkId', isLoggedIn, profilesCtrl.updateToVisit)
 
-router.delete('/toVisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
+router.delete('/tovisit/:id', isLoggedIn, profilesCtrl.deleteToVisit)
 
 export {
   router

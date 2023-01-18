@@ -2,22 +2,18 @@
 <%- include('../partials/nav') %>
 
 <section>
-  <h1>Edit or Check off Bucket List Item!</h1>
-  <form action="/profiles/<%= park._id %>?_method=PUT" method="POST">
-    <label>
-      Amusement Park:
-      <input type="text" name="park" value="<%= park.park %>">
-    </label>
-    <label>
-      Visited Park?
-      <input 
-        type="checkbox" 
-        name="visited" 
-        value="<%= park.visited ? 'checked' : '' %>"
-      >
-    </label>
-    <button type="submit">Update Park</button>
-  </form>
-</section>
+    <h1>Edit or Check off Bucket List Item!</h1>
+    <form action="/profiles/<%= profile._id %>/toVisit/<%= park._id %>?_method=PUT" method="POST">
+      <label>
+        Amusement Park:
+        <input type="text" name="park" autocomplete="off">
+      </label>
+      <label>
+        Visited Park?
+        <input type="checkbox" name="visited">
+      </label>
+      <button type="submit">Update Park</button>
+    </form>
+  </section>
 
 <%- include('../partials/footer') %>

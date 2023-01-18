@@ -26,7 +26,7 @@
         <li><%= park.park %></li>
         <%= park.visited ? '🎢' : '' %>
         <% if (profileOwner) { %>
-          <a href="/profiles/<%= park._id %>/edit">
+          <a href="/profiles/<%= profile._id %>/toVisit/<%= park._id %>/edit">
             <button>Update</button>
           </a>
           <form 
