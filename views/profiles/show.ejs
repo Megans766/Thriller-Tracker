@@ -1,19 +1,22 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/show.css">
 <%- include('../partials/nav') %>
 
-<main>
+<section>
   <div>
     <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
   </div>
-  <h1><%= profileOwner ? 'Your' : `${profile.name}'s` %> thrill collection!</h1>
+  <h1><%= profileOwner ? 'Your' : `${profile.name}'s` %> future thrill collection!</h1>
   <% if (profileOwner) { %>
     <h2>Add a Park to Your Bucket List</h2>
     <form action="/profiles/<%= profile._id %>/toVisit" method="POST">
       <label>
         Amusement Park:
-        <input type="text" name="park" autocomplete="off">
+        <input id="bucket-list-item" type="text" name="park" autocomplete="off">
       </label>
-      <button type="submit">Add Future Adventure</button>
+      <button id="bucket-list-btn" type="submit">
+        Add Future Adventure
+      </button>
     </form>
   <% } %>
   <% if (profile.toVisit.length) { %>
@@ -23,13 +26,15 @@
     </h2>
     <ul>
       <% profile.toVisit.forEach(park => { %>
-        <li><%= park.park %></li>
+        <li>🎢 <%= park.park %>🎢 </li>
         <% if (profileOwner) { %>
           <form 
             action="/profiles/toVisit/<%= park._id %>?_method=DELETE"
             method="POST"
           >
-            <button type="submit">Delete</button>
+            <button id="delete-bucket-list" type="submit">
+              Delete
+            </button>
           </form>
         <% } %>
       <% }) %>
@@ -40,6 +45,6 @@
       created a Bucket List.
     </h2>
   <% } %>
-</main>
+  </section>
 
 <%- include('../partials/footer') %>
