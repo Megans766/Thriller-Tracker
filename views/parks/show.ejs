@@ -1,4 +1,5 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/parks/show.css">
 <%- include('../partials/nav') %>
 
 <section>
@@ -9,15 +10,24 @@
       action="/parks/<%= park._id %>/likes?_method=PATCH" 
       method="POST"
     >
-      <button type="submit">Like this adventure</button>
+      <button class="btn" type="submit">
+        <%= park.likes ? 'Unlike' : 'Like' %> this adventure
+      </button>
     </form>
+    <ul>
+      <% if (likes === true) { %>
+        <li>
+          🎢 You
+          <%= park.likes ? 'like' : ' Do not like' %> this adventure! 🎢
+        </li>
+      <% } %>
   <% } %>
+    </ul>
   <% if (park.owner.equals(user?.profile._id)) { %> 
-    <a href="/parks/<%= park._id %>/edit">
-      <button>Edit Adventure</button>
-    </a>
     <form action="/parks/<%= park._id %>?_method=DELETE" method="POST">
-      <button type="submit">Delete Adventure</button>
+      <button class="btn" type="submit">
+        Delete Adventure
+      </button>
     </form>
   <% } %> 
 </section>

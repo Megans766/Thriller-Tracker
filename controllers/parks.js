@@ -32,7 +32,9 @@ function show(req, res) {
   .then(park => {
     res.render('parks/show', {
       title: 'Park Adventure',
-      park
+      park,
+      likes: park.likes,
+      // owner: park.owner
     })
   })
   .catch(err => {

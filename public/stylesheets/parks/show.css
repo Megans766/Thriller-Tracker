@@ -1,0 +1,27 @@
+section, form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 30px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.btn {
+  margin-top: 10px;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+ul {
+  margin-top: 35px;
+  list-style: none;
+}

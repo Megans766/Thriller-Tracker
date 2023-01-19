@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 const parkSchema = new Schema({
   park: { type: String, required: true },
   ride: { type: String, required: true },
-  likes: { type: Schema.Types.ObjectId, ref: 'Profile'},
+  likes: Boolean,
   owner: { type: Schema.Types.ObjectId, ref: 'Profile' }
 }, {
   timestamps: true
