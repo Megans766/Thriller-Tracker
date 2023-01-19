@@ -1,11 +1,12 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/profiles/index.css">
 <%- include('../partials/nav') %>
 
 <main>
-  <div>
+  <div id="profiles">
     <% profiles.forEach(profile => { %>
       <a href="/profiles/<%= profile._id %>">
-        <div>
+        <div id="profile-pic">
           <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
           <div>
             <h2><%= profile.name %></h2>
