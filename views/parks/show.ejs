@@ -2,11 +2,11 @@
 <link rel="stylesheet" href="/stylesheets/parks/show.css">
 <%- include('../partials/nav') %>
 
-<section>
+<section class="park-view">
   <h2><%= park.owner.name %>'s Adventure</h2>
   <p>At <%= park.park %> my favorite ride was <%= park.ride %></p>
   <% if (user) { %>
-    <form
+    <form class="park-form"
       action="/parks/<%= park._id %>/likes?_method=PATCH" 
       method="POST"
     >
@@ -15,7 +15,10 @@
       </button>
     </form>
   <% if (park.owner.equals(user?.profile._id)) { %> 
-    <form action="/parks/<%= park._id %>?_method=DELETE" method="POST">
+    <a class="park-form" href="/parks/<%= park._id %>/edit">
+      <button class="park-btn">Edit Adventure</button>
+    </a>
+    <form class="park-form" action="/parks/<%= park._id %>?_method=DELETE" method="POST">
       <button class="park-btn" type="submit">
         Delete Adventure
       </button>

@@ -1,4 +1,4 @@
-section, form {
+.park-index, .new-park {
   display: flex;
   flex-direction: column;
   justify-content: center;

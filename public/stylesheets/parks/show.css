@@ -1,4 +1,4 @@
-section {
+.park-form, .park-view {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,9 +16,14 @@ p {
 }
 
 .park-btn {
+  display: flex;
+  flex-direction: row;
   margin-top: 10px;
   padding: 5px;
   border-radius: 10px;
+  width: 140px;
+  justify-content: center;
+  align-items: center;
 }
 
 ul {

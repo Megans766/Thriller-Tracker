@@ -1,9 +1,10 @@
 <%- include('../partials/html-head') %>
+<link rel="stylesheet" href="/stylesheets/parks/edit.css">
 <%- include('../partials/nav') %>
 
-<section>
+<section class="edit-park">
   <h1>Edit this adventure</h1>
-  <form action="/parks/<%= park._id %>?_method=PUT" method="POST">
+  <form class="park-edit-form" action="/parks/<%= park._id %>?_method=PUT" method="POST">
     <label>
       Amusement Park:
       <input type="text" name="park" autocomplete="off">

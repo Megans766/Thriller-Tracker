@@ -2,11 +2,11 @@
 <link rel="stylesheet" href="/stylesheets/parks/index.css">
 <%- include('../partials/nav') %>
 
-<section>
+<section class="park-index">
   <h1>Visited Parks</h1>
   <% if (user) { %>
     <h2>Add a park below!</h2>
-    <form action="/parks" method="POST">
+    <form class="new-park" action="/parks" method="POST">
       <label>
         Amusement Park:
         <input class="addPark" type="text" name="park" autocomplete="off">

@@ -1,0 +1,12 @@
+.edit-park {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* margin-top: 30px; */
+}
+
+.park-edit-form {
+  display: flex;
+
+}
