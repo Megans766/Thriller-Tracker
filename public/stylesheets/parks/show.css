@@ -1,8 +1,6 @@
-.park-form, .park-view {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+section {
+  margin: 40px 0;
+  text-align: center;
 }
 
 h2 {
@@ -15,18 +13,19 @@ p {
   margin-bottom: 15px;
 }
 
+.park-form {
+display: inline;
+}
+
 .park-btn {
-  display: flex;
-  flex-direction: row;
   margin-top: 10px;
   padding: 5px;
   border-radius: 10px;
   width: 140px;
-  justify-content: center;
-  align-items: center;
 }
 
 ul {
+  text-align: center;
   margin-top: 35px;
   list-style: none;
 }
