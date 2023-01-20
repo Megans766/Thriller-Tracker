@@ -26,15 +26,16 @@
     </h2>
     <ul>
       <% profile.toVisit.forEach(park => { %>
-        <li>🎢 <%= park.park %>🎢 </li>
+        <li>🎢 <%= park.park %></li>
         <% if (profileOwner) { %>
           <form 
+            class="delete-bucket-list"
             action="/profiles/toVisit/<%= park._id %>?_method=DELETE"
             method="POST"
           >
-            <button id="delete-bucket-list" type="submit">
-              Delete
-            </button>
+            <button
+              class="del-list-btn"
+              type="submit">Delete</button>
           </form>
         <% } %>
       <% }) %>

@@ -2,11 +2,11 @@
 <link rel="stylesheet" href="/stylesheets/profiles/index.css">
 <%- include('../partials/nav') %>
 
-<main>
-  <div id="profiles">
+<section>
+  <div id="profile-img">
     <% profiles.forEach(profile => { %>
       <a href="/profiles/<%= profile._id %>">
-        <div id="profile-pic">
+        <div id="profile-name">
           <img src="<%= profile.avatar %>" alt="<%= profile.name %>'s avatar">
           <div>
             <h2><%= profile.name %></h2>
@@ -15,6 +15,6 @@
       </a>
     <% }) %>
   </div>
-</main>
+</section>
 
 <%- include('../partials/footer') %>

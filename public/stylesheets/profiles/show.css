@@ -36,14 +36,19 @@ h2 {
 }
 
 ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   list-style: none;
 }
 
 ul > li {
-  margin-bottom: 7px;
+  margin: 10px;
 }
 
-#delete-bucket-list {
-  display: flex;
-  flex-direction: row;
+.delete-bucket-list {
+  display: inline;
 }
+
+.del-list-btn 

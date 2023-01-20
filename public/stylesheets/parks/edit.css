@@ -18,6 +18,10 @@ h1 {
   margin: 15px 0;
 }
 
+input {
+  border-radius: 10px;
+}
+
 .park-edit-form > label {
   margin: 10px 10px;
 }

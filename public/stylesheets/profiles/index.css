@@ -1,8 +1,7 @@
-#profiles {
+#profile-img {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
-  margin: 20px;
+  margin: 30px;
   width: 100px;
 }
 
@@ -10,9 +9,9 @@ img {
   border-radius: 10px;
 }
 
-#profile-pic {
+#profile-name {
   display: flex;
   flex-direction: column;
   font-size: 10px;
-  margin: 20px 0;
+  margin: 10px 0;
 }

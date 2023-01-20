@@ -1,0 +1,26 @@
+section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+h1 {
+  font-size: 35px;
+}
+
+h3 {
+  font-style: italic;
+}
+
+ul > li {
+  list-style: none;
+}
+
+#future-updates {
+  position:fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
