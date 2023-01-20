@@ -1,3 +1,7 @@
+html {
+  background: linear-gradient(to right, #ffd89b, #19547b);
+}
+
 .park-index, .new-park {
   display: flex;
   flex-direction: column;
@@ -22,10 +26,44 @@ h2, h3 {
 
 }
 
-#addNewPark {
+.addNewPark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
   border-radius: 15px;
-  margin-top: 10px;
-  padding: 8px;
+  color: #3B3B3B;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  height: 40px;
+  width: 100%;
+  outline: none;
+  padding: 16px 24px;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  will-change: transform;
+}
+
+.addNewPark:disabled {
+  pointer-events: none;
+}
+
+.addNewPark:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.addNewPark:active {
+  box-shadow: none;
+  transform: translateY(0);
 }
 
 ul {
