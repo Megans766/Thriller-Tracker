@@ -5,7 +5,7 @@
 Thriller-Tracker is a platform for amusement park enthusiasts. Users can share highlights of their adventures as well as create a bucket list of future adventures to go on.
 <br>
 <br>
-# [Share your adventure here!!](https://fly.io-thriller-tracker.fly.dev)
+# [Share your adventure here!!](https://fly.io-thriller-tracker.fly.dev/)
 # [Project Planning Materials](https://trello.com/b/ZtHOMmXh/unit-2-project-planning-materials)
 
 ## Technologies Used
