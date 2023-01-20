@@ -1,16 +1,22 @@
+html {
+  background: linear-gradient(to right, #360033, #0b8793);
+}
+
 section {
   margin: 40px 0;
   text-align: center;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: 40px;
   margin-top: 50px;
   margin-bottom: 30px;
 }
 
 p {
   margin-bottom: 15px;
+  font-weight: 800;
+  font-size: 20px;
 }
 
 .park-form {
@@ -18,14 +24,53 @@ display: inline;
 }
 
 .park-btn {
-  margin-top: 10px;
-  padding: 5px;
-  border-radius: 10px;
-  width: 140px;
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #ca5405;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.park-btn:hover,
+.park-btn:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.park-btn:hover {
+  transform: translateY(-1px);
+}
+
+.park-btn:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
 }
 
 ul {
   text-align: center;
   margin-top: 35px;
   list-style: none;
+  font-weight: 700;
+  font-size: 18px;
 }
