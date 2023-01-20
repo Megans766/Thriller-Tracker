@@ -42,3 +42,12 @@ nav {
   font-style: italic;
   color: rgb(12, 132, 120);
 }
+
+.logout-btn {
+  color:rgb(47, 139, 130);
+  border-radius:10px;
+  height: 30px;
+  border: none;
+  background-color: burlywood;
+  font-weight: 650;
+}
